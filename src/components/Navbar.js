@@ -2,9 +2,7 @@
 
 import React, { Component } from 'react'
 import "./Navbar.css";
-import Category from './Category'
-import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
-import { ProgressBar } from 'react-fetch-progressbar';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 
 export default class Navbar extends Component {
@@ -44,17 +42,12 @@ export default class Navbar extends Component {
                   <Link className="nav-link" to="/technology">Technology</Link>
                 </li>
 
+
+
               </ul>
             </div>
           </div>
         </nav>
-        {/* <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-        </div> */}
-        {/* <div className="progress" style={{ height: "1px" }}>
-          <div className="progress-bar bg-danger" role="progressbar" style={{ width: "25%", color: "red" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-        </div> */}
-        {/* <ProgressBar style={{ backgroundColor: 'red', height: '10px' }}/> */}
 
       </>
     )

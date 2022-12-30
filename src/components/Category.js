@@ -5,9 +5,9 @@ import News from './News';
 class Category extends Component {
 
     render() {
-        let { category } = this.props;
+        let { category , setProgress } = this.props;
         return (
-            <News category={category}></News>
+            <News category={category} setProgress = {setProgress}></News>
         );
     }
 }

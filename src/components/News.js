@@ -18,11 +18,13 @@ export default class News extends Component {
 
 
   async fetchNews(){
+    this.props.setProgress(10);
     let url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=5929c1a97c874cd9a2b1bb4efd0a4047&page=${this.state.page}&pageSize=18`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({ articles: parsedData.articles, totalPages: Math.ceil(parsedData.totalResults / 18) ,loading:false},);
+    this.props.setProgress(100);
   }
 
 
@@ -57,7 +59,7 @@ export default class News extends Component {
 
 
   render() {
-    let {category} = this.props;
+    let {category , setProgress} = this.props;
     return (
 
       
@@ -73,7 +75,8 @@ export default class News extends Component {
                 <div className="col-md-4" key={newsItem.url}>
                   <NewsItem title={newsItem == null ? "" : newsItem.title + "..."}
                     description={newsItem == null ? "" : newsItem.content + "..."}
-                    urlToImage={newsItem.urlToImage} newsUrl={newsItem.url} />
+                    urlToImage={newsItem.urlToImage} newsUrl={newsItem.url} 
+                    />
                 </div>
               );
             })}
